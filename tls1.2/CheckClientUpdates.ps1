@@ -16,12 +16,12 @@ Function Check-Sqlncli()
             Write-Host $cli.Name "with version" $cli.Version " needs to be updated to use TLS 1.2" -ForegroundColor Red
         }
         # SQL Server 2008
-        elseif ($cli.Version.Split(".")[2] -lt 6543  -and $cli.Version.Split(".")[1] -eq 0 -and $cli.Version.Split(".")[0] -eq 10) 
+        elseif ($cli.Version.Split(".")[2] -lt 6543  -and $cli.Version.Split(".")[1] -lt 50 -and $cli.Version.Split(".")[0] -eq 10) 
         {
             Write-Host $cli.Name "with version" $cli.Version " needs to be updated to use TLS 1.2" -ForegroundColor Red
         }
         # SQL Server 2008 R2
-        elseif ($cli.Version.Split(".")[2] -lt 6537 -and $cli.Version.Split(".")[1] -eq 50 -and $cli.Version.Split(".")[0] -eq 10)
+        elseif ($cli.Version.Split(".")[2] -lt 6537 -and $cli.Version.Split(".")[1] -ge 50 -and $cli.Version.Split(".")[0] -eq 10)
         {
             Write-Host $cli.Name "with version" $cli.Version " needs to be updated to use TLS 1.2" -ForegroundColor Red
         }
